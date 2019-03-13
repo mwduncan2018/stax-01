@@ -1,0 +1,60 @@
+<EagleML
+eaglemlVersion="2-0"
+eaglemlType="ReferenceTransactionMessage"
+eaglemlRevision="326"
+xsi:schemaLocation="http://www.eagleinvsys.com/2011/EagleML-2-0 eagleml-main-2-0.xsd"
+xsi:type="ReferenceTransactionMessage"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.eagleinvsys.com/2011/EagleML-2-0">
+
+	<header>
+		<messageId>TESTmessageId</messageId>
+		<sentBy>TESTsentBy</sentBy>
+		<creationTimestamp>TESTcreationTimestamp</creationTimestamp>
+	</header>
+	<referenceTransaction>
+		<header>
+			<objectType>TESTobjectType</objectType>
+		</header>
+		<issuerRelationship>
+			<sourceName>TESTsourceName</sourceName>
+			<updateSource>TESTupdateSource</updateSource>
+			
+			<fromIssuer>
+				<issuerId>TESTissuerId</issuerId>
+				<issuerName>TESTissuerName</issuerName>
+			</fromIssuer>
+		</issuerRelationship>		
+	</referenceTransaction>
+
+	<referenceTransaction>
+		<header>
+			<objectType>test2</objectType>
+		</header>
+		<issuerRelationship>
+			<sourceName>test2</sourceName>
+			<updateSource>test2</updateSource>
+			
+			<fromIssuer>
+				<issuerId>test2</issuerId>
+				<issuerName>test2</issuerName>
+			</fromIssuer>
+		</issuerRelationship>		
+	</referenceTransaction>
+
+	<referenceTransaction>
+		<header>
+			<objectType>test3</objectType>
+		</header>
+		<issuerRelationship>
+			<sourceName>test3</sourceName>
+			<updateSource>test3</updateSource>
+			
+			<fromIssuer>
+				<issuerId>test3</issuerId>
+				<issuerName>test3</issuerName>
+			</fromIssuer>
+		</issuerRelationship>		
+	</referenceTransaction>
+
+</EagleML>
