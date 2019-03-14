@@ -27,11 +27,10 @@ public class Stax01 {
 
 	@Test
 	public void demo_03() throws Exception {
-		// initialize all variables (attributes) to null
+		// initialize all variables (attributes) to 
 		// initialize all variablesFound to false
 
 		// while we have not reached the end of a Reference Transaction
-
 		// --- if the event type is XMLStreamConstants.START_ELEMENT
 		// --- --- case statement to check if this element is an attribute we
 		// are looking for
@@ -52,15 +51,15 @@ public class Stax01 {
 		List<TreeMap<String, String>> dataRows = new ArrayList<TreeMap<String, String>>();
 		TreeMap<String, String> dataRow = new TreeMap<String, String>();
 
-		String sourceName = "null";
-		String updateSource = "null";
-		String fromIssuer_issuerId = "null";
-		String fromIssuer_issuerName = "null";
+		String sourcer = "null";
+		String updater = "null";
+		String from_id = "null";
+		String from_name = "null";
 
-		Boolean bool_sourceName = false;
-		Boolean bool_updateSource = false;
-		Boolean bool_fromIssuer_issuerId = false;
-		Boolean bool_fromIssuer_issuerName = false;
+		Boolean bool_sourcer = false;
+		Boolean bool_updater = false;
+		Boolean bool_from_id = false;
+		Boolean bool_from_name = false;
 
 		StartElement startElement;
 		Characters characters;
@@ -78,21 +77,21 @@ public class Stax01 {
 
 			// if we have reached the end of a Reference Transaction
 			if (e.getEventType() == XMLStreamConstants.END_ELEMENT
-					&& (e.asEndElement().getName().getLocalPart().equalsIgnoreCase("ReferenceTransaction"))) {
+					&& (e.asEndElement().getName().getLocalPart().equalsIgnoreCase("payloadItem"))) {
 				// save all values that have been accumulated
-				dataRow.put("sourceName", sourceName);
-				dataRow.put("updateSource", updateSource);
-				dataRow.put("fromIssuer_issuerId", fromIssuer_issuerId);
-				dataRow.put("fromIssuer_issuerName", fromIssuer_issuerName);
+				dataRow.put("sourcer", sourcer);
+				dataRow.put("updater", updater);
+				dataRow.put("from_id", from_id);
+				dataRow.put("from_name", from_name);
 
 				// add the dataRow to the list of dataRows
 				dataRows.add(dataRow);
 
 				// reset the variables to "null"
-				sourceName = "null";
-				updateSource = "null";
-				fromIssuer_issuerId = "null";
-				fromIssuer_issuerName = "null";
+				sourcer = "null";
+				updater = "null";
+				from_id = "null";
+				from_name = "null";
 
 				// initialize a new dataRow
 				dataRow = new TreeMap<String, String>();
@@ -103,37 +102,37 @@ public class Stax01 {
 				startElement = e.asStartElement();
 				qName = startElement.getName().getLocalPart();
 
-				if (qName.equalsIgnoreCase("sourceName")) {
-					bool_sourceName = true;
+				if (qName.equalsIgnoreCase("sourcer")) {
+					bool_sourcer = true;
 				}
 
-				if (qName.equalsIgnoreCase("updateSource")) {
-					bool_updateSource = true;
+				if (qName.equalsIgnoreCase("updater")) {
+					bool_updater = true;
 				}
 
-				if (qName.equalsIgnoreCase("fromIssuer")) {
-					// while we have not reached the end of fromIssuer
-					while (!reachedEnd(e, "fromIssuer")) {
+				if (qName.equalsIgnoreCase("from")) {
+					// while we have not reached the end of from
+					while (!reachedEnd(e, "from")) {
 						if (e.getEventType() == XMLStreamConstants.START_ELEMENT) {
 							startElement = e.asStartElement();
 							qName = startElement.getName().getLocalPart();
 
-							if (qName.equalsIgnoreCase("issuerId")) {
-								bool_fromIssuer_issuerId = true;
+							if (qName.equalsIgnoreCase("id")) {
+								bool_from_id = true;
 							}
-							if (qName.equalsIgnoreCase("issuerName")) {
-								bool_fromIssuer_issuerName = true;
+							if (qName.equalsIgnoreCase("name")) {
+								bool_from_name = true;
 							}
 						}
 						if (e.getEventType() == XMLStreamConstants.CHARACTERS) {
 							characters = e.asCharacters();
-							if (bool_fromIssuer_issuerId == true) {
-								bool_fromIssuer_issuerId = false;
-								fromIssuer_issuerId = characters.getData();
+							if (bool_from_id == true) {
+								bool_from_id = false;
+								from_id = characters.getData();
 							}
-							if (bool_fromIssuer_issuerName == true) {
-								bool_fromIssuer_issuerName = false;
-								fromIssuer_issuerName = characters.getData();
+							if (bool_from_name == true) {
+								bool_from_name = false;
+								from_name = characters.getData();
 							}
 						}
 						e = r.nextEvent();
@@ -143,13 +142,13 @@ public class Stax01 {
 			}
 			if (e.getEventType() == XMLStreamConstants.CHARACTERS) {
 				characters = e.asCharacters();
-				if (bool_sourceName == true) {
-					bool_sourceName = false;
-					sourceName = characters.getData();
+				if (bool_sourcer == true) {
+					bool_sourcer = false;
+					sourcer = characters.getData();
 				}
-				if (bool_updateSource == true) {
-					bool_updateSource = false;
-					updateSource = characters.getData();
+				if (bool_updater == true) {
+					bool_updater = false;
+					updater = characters.getData();
 				}
 			}
 
@@ -165,7 +164,7 @@ public class Stax01 {
 
 	public Boolean reachedEnd(XMLEvent e, String name) {
 		if (e.getEventType() == XMLStreamConstants.END_ELEMENT
-				&& (e.asEndElement().getName().getLocalPart().equalsIgnoreCase("fromIssuer"))) {
+				&& (e.asEndElement().getName().getLocalPart().equalsIgnoreCase("from"))) {
 			return true;
 		}
 		return false;

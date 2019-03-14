@@ -1,60 +1,52 @@
-<EagleML
-eaglemlVersion="2-0"
-eaglemlType="ReferenceTransactionMessage"
-eaglemlRevision="326"
-xsi:schemaLocation="http://www.eagleinvsys.com/2011/EagleML-2-0 eagleml-main-2-0.xsd"
-xsi:type="ReferenceTransactionMessage"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://www.eagleinvsys.com/2011/EagleML-2-0">
-
+<OrioleBird>
 	<header>
-		<messageId>TESTmessageId</messageId>
-		<sentBy>TESTsentBy</sentBy>
-		<creationTimestamp>TESTcreationTimestamp</creationTimestamp>
+		<someId>TESTmessageId</someId>
+		<sender>TESTsentBy</sender>
+		<createTime>TESTcreationTimestamp</createTime>
 	</header>
-	<referenceTransaction>
+	<payloadItem>
 		<header>
-			<objectType>TESTobjectType</objectType>
+			<oType>TESToType</oType>
 		</header>
-		<issuerRelationship>
-			<sourceName>TESTsourceName</sourceName>
-			<updateSource>TESTupdateSource</updateSource>
+		<relationship>
+			<sourcer>TESTsourcer</sourcer>
+			<updater>TESTupdater</updater>
 			
-			<fromIssuer>
-				<issuerId>TESTissuerId</issuerId>
-				<issuerName>TESTissuerName</issuerName>
-			</fromIssuer>
-		</issuerRelationship>		
-	</referenceTransaction>
+			<from>
+				<id>TESTid</id>
+				<name>TESTname</name>
+			</from>
+		</relationship>		
+	</payloadItem>
 
-	<referenceTransaction>
+	<payloadItem>
 		<header>
-			<objectType>test2</objectType>
+			<oType>test2</oType>
 		</header>
-		<issuerRelationship>
-			<sourceName>test2</sourceName>
-			<updateSource>test2</updateSource>
+		<relationship>
+			<sourcer>test2</sourcer>
+			<updater>test2</updater>
 			
-			<fromIssuer>
-				<issuerId>test2</issuerId>
-				<issuerName>test2</issuerName>
-			</fromIssuer>
-		</issuerRelationship>		
-	</referenceTransaction>
+			<from>
+				<id>test2</id>
+				<name>test2</name>
+			</from>
+		</relationship>		
+	</payloadItem>
 
-	<referenceTransaction>
+	<payloadItem>
 		<header>
-			<objectType>test3</objectType>
+			<oType>test3</oType>
 		</header>
-		<issuerRelationship>
-			<sourceName>test3</sourceName>
-			<updateSource>test3</updateSource>
+		<relationship>
+			<sourcer>test3</sourcer>
+			<updater>test3</updater>
 			
-			<fromIssuer>
-				<issuerId>test3</issuerId>
-				<issuerName>test3</issuerName>
-			</fromIssuer>
-		</issuerRelationship>		
-	</referenceTransaction>
+			<from>
+				<id>test3</id>
+				<name>test3</name>
+			</from>
+		</relationship>		
+	</payloadItem>
 
-</EagleML>
+</OrioleBird>
